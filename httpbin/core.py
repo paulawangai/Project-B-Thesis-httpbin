@@ -29,9 +29,14 @@ from flask import (
 from six.moves import range as xrange
 from werkzeug.datastructures import WWWAuthenticate, MultiDict
 from werkzeug.http import http_date
-from werkzeug.wrappers import BaseResponse
 from werkzeug.http import parse_authorization_header
 from flasgger import Swagger, NO_SANITIZER
+
+try:
+    from werkzeug.wrappers import BaseResponse
+except ImportError:
+    # For newer Werkzeug versions
+    from werkzeug.wrappers.response import Response as BaseResponse
 
 from . import filters
 from .helpers import (

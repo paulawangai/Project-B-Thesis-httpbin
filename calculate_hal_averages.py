@@ -5,7 +5,7 @@ import statistics
 h1, h2, N1, N2, vocabulary, length, calculated_length = [], [], [], [], [], [], []
 volume, difficulty, effort, time, bugs = [], [], [], [], []
 
-with open('metrics/immutable_functions_metrics/halstead_metrics_after.txt', 'r') as f:
+with open('metrics/immutable_functions_metrics/halstead_metrics_after_with_tests.txt', 'r') as f:
     current_file = None
     for line in f:
         line = line.strip()

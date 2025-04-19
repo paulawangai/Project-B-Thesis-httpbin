@@ -19,6 +19,7 @@ from werkzeug.datastructures import WWWAuthenticate
 from flask import request, make_response
 from six.moves.urllib.parse import urlparse, urlunparse
 
+from fp_decorators.immutable import immutable
 
 from .structures import CaseInsensitiveDict
 
@@ -81,7 +82,7 @@ ANGRY_ASCII ="""
      YOU SHOULDN'T BE HERE
 """
 
-
+@immutable
 def json_safe(string, content_type='application/octet-stream'):
     """Returns JSON-safe version of `string`.
 
@@ -138,7 +139,7 @@ def get_headers(hide_env=True):
 
     return CaseInsensitiveDict(headers.items())
 
-
+@immutable
 def semiflatten(multi):
     """Convert a MutiDict into a regular dict. If there are more than one value
     for a key, the result will have a list of values for the key. Otherwise it
@@ -167,7 +168,7 @@ def get_url(request):
     url[0] = protocol
     return urlunparse(url)
 
-
+@immutable
 def get_dict(*keys, **extras):
     """Returns request dict of given keys."""
 
