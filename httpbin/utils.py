@@ -9,8 +9,10 @@ Utility functions.
 
 import random
 import bisect
+from fp_decorators.pure import pure
 
 
+@pure(allow_random=True)
 def weighted_choice(choices):
     """Returns a value from choices chosen by weighted random selection
 

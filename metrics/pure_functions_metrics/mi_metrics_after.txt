@@ -1,0 +1,6 @@
+httpbin/core.py - A (27.17)
+httpbin/filters.py - A (67.49)
+httpbin/helpers.py - A (43.07)
+httpbin/utils.py - A (97.49)
+httpbin/structures.py - A (91.73)
+test_httpbin.py - B (18.69)
