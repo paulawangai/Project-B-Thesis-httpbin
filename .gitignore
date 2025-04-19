@@ -9,3 +9,9 @@ dist/
 *.egg-info
 *.swp
 .vscode/
+project-b/
+.venv/
+__pycache__
+*.pyc
+*.py[cod]
+*$py.class
