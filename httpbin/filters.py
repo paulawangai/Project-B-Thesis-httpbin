@@ -18,6 +18,7 @@ from time import time as now
 
 from decorator import decorator
 from flask import Flask, Response
+from fp_decorators.higher_order import higher_order
 
 
 app = Flask(__name__)
@@ -35,6 +36,7 @@ def x_runtime(f, *args, **kwargs):
     return r
 
 
+@higher_order(enhanced=True)
 @decorator
 def gzip(f, *args, **kwargs):
     """GZip Flask Response Decorator."""

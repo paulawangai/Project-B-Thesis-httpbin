@@ -19,6 +19,8 @@ from werkzeug.datastructures import WWWAuthenticate
 from flask import request, make_response
 from six.moves.urllib.parse import urlparse, urlunparse
 
+from fp_decorators.higher_order import higher_order
+
 
 from .structures import CaseInsensitiveDict
 
@@ -138,7 +140,7 @@ def get_headers(hide_env=True):
 
     return CaseInsensitiveDict(headers.items())
 
-
+@higher_order(enhanced=True)
 def semiflatten(multi):
     """Convert a MutiDict into a regular dict. If there are more than one value
     for a key, the result will have a list of values for the key. Otherwise it

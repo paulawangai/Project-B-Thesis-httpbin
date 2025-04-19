@@ -9,8 +9,9 @@ Utility functions.
 
 import random
 import bisect
+from fp_decorators.higher_order import higher_order
 
-
+@higher_order(enhanced=True)
 def weighted_choice(choices):
     """Returns a value from choices chosen by weighted random selection
 
