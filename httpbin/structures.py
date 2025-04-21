@@ -7,6 +7,8 @@ httpbin.structures
 Data structures that power httpbin.
 """
 
+from fp_decorators.pure import pure
+
 
 class CaseInsensitiveDict(dict):
     """Case-insensitive Dictionary for headers.
@@ -14,7 +16,7 @@ class CaseInsensitiveDict(dict):
     For example, ``headers['content-encoding']`` will return the
     value of a ``'Content-Encoding'`` response header.
     """
-
+    @pure
     def _lower_keys(self):
         return [k.lower() for k in self.keys()]
 

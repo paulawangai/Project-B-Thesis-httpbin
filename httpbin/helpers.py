@@ -21,6 +21,7 @@ from six.moves.urllib.parse import urlparse, urlunparse
 
 
 from .structures import CaseInsensitiveDict
+from fp_decorators.pure import pure
 
 
 ASCII_ART = """
@@ -81,7 +82,7 @@ ANGRY_ASCII ="""
      YOU SHOULDN'T BE HERE
 """
 
-
+@pure
 def json_safe(string, content_type='application/octet-stream'):
     """Returns JSON-safe version of `string`.
 
@@ -139,6 +140,7 @@ def get_headers(hide_env=True):
     return CaseInsensitiveDict(headers.items())
 
 
+@pure
 def semiflatten(multi):
     """Convert a MutiDict into a regular dict. If there are more than one value
     for a key, the result will have a list of values for the key. Otherwise it
@@ -266,6 +268,7 @@ def check_basic_auth(user, passwd):
 # Digest auth helpers
 # qop is a quality of protection
 
+@pure
 def H(data, algorithm):
     if algorithm == 'SHA-256':
         return sha256(data).hexdigest()
@@ -275,6 +278,7 @@ def H(data, algorithm):
         return md5(data).hexdigest()
 
 
+@pure
 def HA1(realm, username, password, algorithm):
     """Create HA1 hash by realm, username, password
 
@@ -287,6 +291,7 @@ def HA1(realm, username, password, algorithm):
                            password.encode('utf-8')]), algorithm)
 
 
+@pure
 def HA2(credentials, request, algorithm):
     """Create HA2 md5 hash
 
