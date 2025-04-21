@@ -19,7 +19,10 @@ from werkzeug.datastructures import WWWAuthenticate
 from flask import request, make_response
 from six.moves.urllib.parse import urlparse, urlunparse
 
+
 from fp_decorators.immutable import immutable
+
+from fp_decorators.higher_order import higher_order
 
 from .structures import CaseInsensitiveDict
 from fp_decorators.pure import pure
@@ -144,6 +147,7 @@ def get_headers(hide_env=True):
 
 @pure
 @immutable
+@higher_order(enhanced=True)
 def semiflatten(multi):
     """Convert a MutiDict into a regular dict. If there are more than one value
     for a key, the result will have a list of values for the key. Otherwise it
